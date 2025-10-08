@@ -23,6 +23,7 @@ public class PaymentController {
 
     @PostMapping("/createLink")
     public ResponseEntity<String> createPaymentLink(@RequestBody PaymentLinkRequestDto paymentLinkRequestDto) throws StripeException {
+        System.out.println("createPaymentLink");
         String paymentUrl = paymentService.createPaymentLink(paymentLinkRequestDto.getOrderId(),paymentLinkRequestDto.getAmount());
         return ResponseEntity.ok(paymentUrl);
     }
